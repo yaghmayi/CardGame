@@ -12,8 +12,11 @@ namespace CardGame.UnitTests
             Deck deck = new Deck();
             deck.Mix();
 
-            Assert.IsNotNull(deck.Cards);
-            Assert.AreEqual(52, deck.Cards.Count);
+            Assert.AreEqual(52, deck.GetCradsCount());
+            for (int i = 0; i < deck.GetCradsCount(); i++)
+            {
+                Assert.IsNotNull(deck.GetCard(i));
+            }
         }
 
         [TestMethod]
@@ -23,21 +26,20 @@ namespace CardGame.UnitTests
             deck.Mix();
             deck.Sort();
 
-            Assert.IsNotNull(deck.Cards);
-            Assert.AreEqual(52, deck.Cards.Count);
+            Assert.AreEqual(52, deck.GetCradsCount());
 
-            for (int i = 0; i < deck.Cards.Count-1; i++)
+            for (int i = 0; i < deck.GetCradsCount()-1; i++)
             {
-                Card card1 = deck.Cards[i];
-                Card card2 = deck.Cards[i + 1];
+                Card card1 = deck.GetCard(i);
+                Card card2 = deck.GetCard(i + 1);
 
                 Assert.IsTrue(card1.Color <= card2.Color);
             }
 
-            for (int i = 0; i < deck.Cards.Count - 1; i++)
+            for (int i = 0; i < deck.GetCradsCount() - 1; i++)
             {
-                Card card1 = deck.Cards[i];
-                Card card2 = deck.Cards[i + 1];
+                Card card1 = deck.GetCard(i);
+                Card card2 = deck.GetCard(i + 1);
 
                 if (card1.Color == card2.Color)
                 {
@@ -52,18 +54,18 @@ namespace CardGame.UnitTests
             Deck deck = new Deck();
             deck.Mix();
 
-            int cardsCount = deck.Cards.Count;
-            for (int i = 1; i <= cardsCount; i++)
+            int originalSize = deck.GetCradsCount();
+            for (int i = 1; i <= originalSize; i++)
             {
                 Card card = deck.PullCard();
 
                 Assert.IsNotNull(card);
-                Assert.AreEqual(cardsCount - i, deck.Cards.Count);
+                Assert.AreEqual(originalSize - i, deck.GetCradsCount());
             }
-            Assert.AreEqual(0, deck.Cards.Count);
+            Assert.AreEqual(0, deck.GetCradsCount());
 
             Assert.IsNull(deck.PullCard());
-            Assert.AreEqual(0, deck.Cards.Count);
+            Assert.AreEqual(0, deck.GetCradsCount());
         }
     }
 }

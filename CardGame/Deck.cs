@@ -5,11 +5,11 @@ namespace CardGame.Core
 {
     public class Deck
     {
-        public List<Card> Cards { get; set; }
+        private List<Card> cards { get; set; }
 
         public Deck()
         {
-            this.Cards = new List<Card>();
+            this.cards = new List<Card>();
 
             foreach (CardColor cardColor in Enum.GetValues(typeof(CardColor)))
             {
@@ -17,7 +17,7 @@ namespace CardGame.Core
                 {
                     Card card = new Card(cardColor, cardValue);
 
-                    this.Cards.Add(card);
+                    this.cards.Add(card);
                 }
             }
         }
@@ -29,38 +29,52 @@ namespace CardGame.Core
             do
             {
                 Random r = new Random();
-                int index = r.Next(this.Cards.Count);
+                int index = r.Next(this.cards.Count);
 
                 if (!randomIndexes.Contains(index))
                     randomIndexes.Add(index);
             }
-            while (randomIndexes.Count == this.Cards.Count);
+            while (randomIndexes.Count == this.cards.Count);
 
             foreach (int index in randomIndexes)
             {
-                Card card = this.Cards[index];
+                Card card = this.cards[index];
 
-                this.Cards.Remove(card);
-                this.Cards.Insert(0, card);
+                this.cards.Remove(card);
+                this.cards.Insert(0, card);
             }
         }
 
         public void Sort()
         {
-            this.Cards.Sort(new CardComparer());
+            this.cards.Sort(new CardComparer());
         }
 
         public Card PullCard()
         {
             Card card = null;
 
-            if (this.Cards.Count > 0)
+            if (this.cards.Count > 0)
             {
-                card = this.Cards[0];
-                this.Cards.RemoveAt(0);
+                card = this.cards[0];
+                this.cards.RemoveAt(0);
             }
 
             return card;
+        }
+
+        public int GetCradsCount()
+        {
+            return this.cards.Count;
+        }
+
+        public Card GetCard(int index)
+        {
+            if (index < this.GetCradsCount())
+                return this.cards[index];
+            else
+                return null;
+
         }
     }
 }
