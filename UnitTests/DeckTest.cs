@@ -1,7 +1,7 @@
-﻿using CardGame;
+﻿using CardGame.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTests
+namespace CardGame.UnitTests
 {
     [TestClass]
     public class DeckTest

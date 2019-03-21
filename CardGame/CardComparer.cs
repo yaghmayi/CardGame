@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CardGame
+namespace CardGame.Core
 {
     public class CardComparer : IComparer<Card>
     {

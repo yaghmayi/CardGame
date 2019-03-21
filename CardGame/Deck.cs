@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CardGame
+namespace CardGame.Core
 {
     public class Deck
     {
