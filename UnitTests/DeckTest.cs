@@ -55,7 +55,6 @@ namespace CardGame.UnitTests
                 }
             }
 
-
             Console.WriteLine("Cards List (After Sort):");
             for (int i = 0; i < deck.GetCardsCount() - 1; i++)
             {

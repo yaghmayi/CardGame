@@ -79,7 +79,6 @@ namespace CardGame.Core
                 return this.cards[index];
             else
                 return null;
-
         }
     }
 }
