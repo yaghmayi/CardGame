@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CardGame.Core
 {
-    public class Deck
+    public class Deck : IDeck
     {
         private List<Card> cards { get; set; }
 
@@ -26,22 +26,27 @@ namespace CardGame.Core
         {
             List<int> randomIndexes = new List<int>();
 
-            do
+            for (int round = 1; round <= 20; round++)
             {
-                Random r = new Random();
-                int index = r.Next(this.cards.Count);
+                do
+                {
+                    Random r = new Random();
+                    int index = r.Next(this.cards.Count);
 
-                if (!randomIndexes.Contains(index))
-                    randomIndexes.Add(index);
-            }
-            while (randomIndexes.Count == this.cards.Count);
+                    if (!randomIndexes.Contains(index))
+                        randomIndexes.Add(index);
+                }
+                while (randomIndexes.Count == this.cards.Count);
 
-            foreach (int index in randomIndexes)
-            {
-                Card card = this.cards[index];
+                foreach (int index in randomIndexes)
+                {
+                    Card card = this.cards[index];
 
-                this.cards.Remove(card);
-                this.cards.Insert(0, card);
+                    this.cards.Remove(card);
+                    this.cards.Insert(0, card);
+                }
+
+                randomIndexes.Clear();
             }
         }
 
@@ -63,14 +68,14 @@ namespace CardGame.Core
             return card;
         }
 
-        public int GetCradsCount()
+        public int GetCardsCount()
         {
             return this.cards.Count;
         }
 
         public Card GetCard(int index)
         {
-            if (index < this.GetCradsCount())
+            if (index < this.GetCardsCount())
                 return this.cards[index];
             else
                 return null;

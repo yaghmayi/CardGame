@@ -45,6 +45,7 @@
     <Compile Include="CardComparer.cs" />
     <Compile Include="CardValue.cs" />
     <Compile Include="Deck.cs" />
+    <Compile Include="IDeck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
