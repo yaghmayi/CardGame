@@ -26,27 +26,22 @@ namespace CardGame.Core
         {
             List<int> randomIndexes = new List<int>();
 
-            for (int round = 1; round <= 20; round++)
+            do
             {
-                do
-                {
-                    Random r = new Random();
-                    int index = r.Next(this.cards.Count);
+                Random r = new Random();
+                int index = r.Next(this.cards.Count);
 
-                    if (!randomIndexes.Contains(index))
-                        randomIndexes.Add(index);
-                }
-                while (randomIndexes.Count == this.cards.Count);
+                if (!randomIndexes.Contains(index))
+                    randomIndexes.Add(index);
+            }
+            while (randomIndexes.Count < this.cards.Count);
 
-                foreach (int index in randomIndexes)
-                {
-                    Card card = this.cards[index];
+            foreach (int index in randomIndexes)
+            {
+                Card card = this.cards[index];
 
-                    this.cards.Remove(card);
-                    this.cards.Insert(0, card);
-                }
-
-                randomIndexes.Clear();
+                this.cards.Remove(card);
+                this.cards.Insert(0, card);
             }
         }
 
