@@ -20,7 +20,7 @@ namespace CardGame.UnitTests
             }
 
             Console.WriteLine("Cards List (After Mix):");
-            for (int i = 0; i < deck.GetCardsCount() - 1; i++)
+            for (int i = 0; i < deck.GetCardsCount(); i++)
             {
                 Card card = deck.GetCard(i);
                 Console.WriteLine(card);
@@ -56,7 +56,7 @@ namespace CardGame.UnitTests
             }
 
             Console.WriteLine("Cards List (After Sort):");
-            for (int i = 0; i < deck.GetCardsCount() - 1; i++)
+            for (int i = 0; i < deck.GetCardsCount(); i++)
             {
                 Card card = deck.GetCard(i);
                 Console.WriteLine(card);
