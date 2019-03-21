@@ -18,6 +18,13 @@ namespace CardGame.UnitTests
             {
                 Assert.IsNotNull(deck.GetCard(i));
             }
+
+            Console.WriteLine("Cards List (After Mix):");
+            for (int i = 0; i < deck.GetCardsCount() - 1; i++)
+            {
+                Card card = deck.GetCard(i);
+                Console.WriteLine(card);
+            }
         }
 
         [TestMethod]
@@ -47,6 +54,14 @@ namespace CardGame.UnitTests
                     Assert.IsTrue(card1.Value <= card2.Value);
                 }
             }
+
+
+            Console.WriteLine("Cards List (After Sort):");
+            for (int i = 0; i < deck.GetCardsCount() - 1; i++)
+            {
+                Card card = deck.GetCard(i);
+                Console.WriteLine(card);
+            }
         }
 
         [TestMethod]
@@ -67,34 +82,6 @@ namespace CardGame.UnitTests
 
             Assert.IsNull(deck.PullCard());
             Assert.AreEqual(0, deck.GetCardsCount());
-        }
-
-        [TestMethod]
-        public void SmokeTest()
-        {
-            Deck deck = new Deck();
-            deck.Sort();
-
-            Console.WriteLine("Cards List (After Sort):");
-            do
-            {
-                Card card = deck.PullCard();
-                Console.WriteLine(card);
-            }
-            while (deck.GetCardsCount() > 0);
-            Console.WriteLine("--------------------------------");
-
-
-
-            deck = new Deck();
-            deck.Mix();
-            Console.WriteLine("Cards List (After Mix):");
-            do
-            {
-                Card card = deck.PullCard();
-                Console.WriteLine(card);
-            }
-            while (deck.GetCardsCount() > 0);
         }
     }
 }

@@ -13,7 +13,7 @@
 
         public override string ToString()
         {
-            return this.Color + " " + this.getStringValue();
+            return this.getColorString() + " " + this.getStringValue();
         }
 
         private string getStringValue()
@@ -27,6 +27,37 @@
             {
                 return ((int) this.Value).ToString();
             }
+        }
+
+        private string getColorString()
+        {
+            char clover = '\u2663';
+            char spade = '\u2660';
+            char diamond = '\u2666';
+            char heart = '\u2665';
+
+            string colorStr = null;
+
+            switch (this.Color)
+            {
+                case CardColor.Heart:
+                    colorStr = heart.ToString();
+                break;
+
+                case CardColor.Diamond:
+                    colorStr = diamond.ToString();
+                break;
+
+                case CardColor.Spade:
+                    colorStr = spade.ToString();
+                break;
+
+                case CardColor.Clover:
+                    colorStr = clover.ToString();
+                break;
+            }
+
+            return colorStr;
         }
 
     }
