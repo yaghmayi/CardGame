@@ -7,8 +7,8 @@
     <ProjectGuid>{39BF316F-7571-48C5-B866-47B9884DCB4D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnitTests</RootNamespace>
-    <AssemblyName>UnitTests</AssemblyName>
+    <RootNamespace>CardGame.UnitTests</RootNamespace>
+    <AssemblyName>CardGame.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,7 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CardGame\Core.csproj">
+    <ProjectReference Include="..\Core\Core.csproj">
       <Project>{63023a48-5ba1-46dd-bc32-3269ed67b648}</Project>
       <Name>Core</Name>
     </ProjectReference>
